@@ -2,27 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Counselor.View.Advice"
-             BackgroundColor="LightYellow">
+             BackgroundColor="LightYellow"
+             >
     <ContentPage.Content>
         <StackLayout>
-            <Image Source="Advice.png" />
+            <Image Source="Advice.png" HeightRequest="100" Margin="0,50,0,0"/>
             <Label Text="Counselor"
                 VerticalOptions="Start" HorizontalOptions="CenterAndExpand"
-                Margin="50"
+                Margin="0,0,0,30"
                 FontSize="Title" 
                 FontAttributes="Bold"
                 TextColor="DarkGray"
                    />
             <Frame CornerRadius="10" HeightRequest="300" Margin="10" BackgroundColor="#fffff7">
                 <StackLayout>
-                    <Label Text="Advice 69:"
+                    <Label Text="{Binding Slip_ID}"
                 VerticalOptions="Start"
                 FontSize="Title" 
                 FontAttributes="Bold"
                 TextColor="DarkGray"
                    />
 
-                    <Label Text="Never gonna give up, Never gonna let you down" 
+                    <Label Text="{Binding Advice}" 
                        TextColor="DarkGray"
                        FontSize="Body"/>
                 </StackLayout>
@@ -31,12 +32,17 @@
                    HorizontalTextAlignment="Center"
                    Margin="100,50,100,0"
                    PlaceholderColor="DarkGray"
-                   />
+                   x:Name="ent_Num"
+                   Keyboard="Numeric"
+                   TextColor="DarkGoldenrod"/>
+            
+            
             <Button Text="New Advice" 
                     HorizontalOptions="Center"
                     Padding="10"
                     Margin="50"
-                    BackgroundColor="DarkGoldenrod"/>
+                    BackgroundColor="DarkGoldenrod"
+                    Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

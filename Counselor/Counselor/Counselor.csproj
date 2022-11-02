@@ -12,15 +12,25 @@
 
   <ItemGroup>
     <None Remove="View\advice.png" />
+    <None Remove="View\Image\Advice.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="View\Image\Advice.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="View\advice.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="View\Image\Advice.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
@@ -28,6 +38,7 @@
   <ItemGroup>
     <EmbeddedResource Update="View\Advice.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
