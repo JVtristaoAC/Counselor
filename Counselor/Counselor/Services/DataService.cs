@@ -33,7 +33,7 @@ namespace Counselor.Services
         public static async Task<Advices> GetAdvicebyNum(string Advice_Num)
         {
             string queryString = "https://api.adviceslip.com/advice/" + Advice_Num;
-            dynamic result = await getDataFromServiceByNum(queryString).ConfigureAwait(false);
+            dynamic result = await getDataFromService(queryString).ConfigureAwait(false);
 
             if (result["slip"] != null)
             {
@@ -65,24 +65,6 @@ namespace Counselor.Services
 
         }
 
-        public static async Task<dynamic> getDataFromServiceByNum(string url)
-        {
-
-
-
-            Console.WriteLine(url);
-
-
-            HttpClient client = new HttpClient();
-            var response = await client.GetAsync(url);
-            dynamic data = null;
-
-            if (response != null)
-            {
-                string json = response.Content.ReadAsStringAsync().Result;
-                data = JsonConvert.DeserializeObject(json);
-            }
-            return data;
-        }
+       
     }
 }
